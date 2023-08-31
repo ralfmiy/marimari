@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/src/enums/page_names.dart';
+import 'package:flutter_template/src/managers/page_manager_n.dart';
 
 Drawer getDrawer(BuildContext context){
   return Drawer(
@@ -30,7 +32,7 @@ Drawer getDrawer(BuildContext context){
               ListTile(
                 leading: const Icon(Icons.dashboard),
                 title: const Text('Dashboard'),
-                onTap: (){onPressDashboard();},
+                onTap: (){onPressDashboard(context);},
               ),
               ListTile(
                 leading: Icon(Icons.production_quantity_limits),
@@ -47,6 +49,6 @@ Drawer getDrawer(BuildContext context){
 
 
 //Functions
-void onPressDashboard(){
-
+void onPressDashboard(context){
+  PageManagerN().goPage(PageNames.dashboard, context);
 }
