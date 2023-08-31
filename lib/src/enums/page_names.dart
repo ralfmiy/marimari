@@ -1,4 +1,7 @@
 enum PageNames {
-  home,
-  login,
+  login("/login"),
+  dashboard("/dashboard");
+
+  final String route;
+  const PageNames(this.route);
 }

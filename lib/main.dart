@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_template/src/enums/culture.dart';
-import 'package:flutter_template/src/ui/pages/home_page.dart';
-import 'package:flutter_template/src/ui/pages/init_page.dart';
+import 'package:flutter_template/src/managers/page_manager_n.dart';
+import 'package:flutter_template/src/ui/pages/dashboard_page.dart';
+import 'package:flutter_template/src/ui/pages/login/login_page.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'src/managers/page_manager.dart';
 import 'src/providers/app_provider.dart';
 import 'values/k_colors.dart';
 
@@ -55,11 +55,8 @@ class _MyHomePageState extends State<MyApp> {
         Locale('es', ''),
         Locale('en', ''),
       ],
-      navigatorKey: PageManager().navigatorKey,
       locale: _locale,
-      onGenerateRoute: (settings) {
-        return PageManager().getRoute(settings);
-      },
+      routes: PageManagerN().getRoutes(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
@@ -92,6 +89,6 @@ class _MyHomePageState extends State<MyApp> {
   }
 
   _initPage() {
-    return HomePage(null);
+    return LoginPage(null);
   }
 }
